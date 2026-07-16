@@ -1,11 +1,20 @@
 import { useAuth } from '@clerk/expo';
 import { Feather } from '@expo/vector-icons';
 import { Redirect, Tabs } from 'expo-router';
+import { cssInterop } from "nativewind";
 import type { ComponentProps } from 'react';
 import { View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 type FeatherIconName = ComponentProps<typeof Feather>["name"];
+cssInterop(Feather, {
+    className: {
+        target: 'style',
+        nativeStyleToProp: {
+            color: true, // Maps text-* utilities directly to the icon's color prop
+        },
+    },
+});
 
 export const tabs: Array<{ name: "index" | "planner" | "insights"; title: string; icon: FeatherIconName; }> = [
     { name: "index", title: "Home", icon: "home" },
@@ -25,7 +34,7 @@ const TabIcon = ({ focused, icon }: TabIconProps) => {
                 <Feather
                     name={icon}
                     size={30}
-                    className={'text-white'} // to do: fix colors
+                    className={focused ? 'text-primary' : 'text-secondary'}
                 />
             </View>
         </View >
@@ -61,7 +70,7 @@ export default function TabsLayout() {
                     paddingTop: 16,
                 },
                 tabBarBackground: () => (
-                    <View className="flex-1 rounded-[44px] bg-primary/70 justify-center items-center" />
+                    <View className="flex-1 rounded-[44px] bg-primary/60 justify-center items-center" />
                 ),
                 tabBarItemStyle: {
                     paddingVertical: 0,
