@@ -1,5 +1,5 @@
 import useSocialAuth from "@/hooks/useSocialAuth";
-import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { Pressable, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -57,16 +57,13 @@ export default function SignInScreen() {
                         className={`mb-3 h-14 flex-row items-center rounded-2xl border
                         border-border bg-card px-4 active:opacity-90 ${isLoading ? "opacity-70" : ""}`}>
                         <View className="h-8 w-8 items-center justify-center rounded-full bg-white">
-                            <Image
-                                source={require("../../../assets/images/google.png")}
-                                style={{ width: 20, height: 20 }}
-                            />
+                            <Feather name="globe" size={20} color="#111" />
                         </View>
 
                         <Text className="ml-3 flex-1 text-lg font-semibold text-card-foreground">
                             {isGoogleClicked ? "Connecting Google..." : "Continue with Google"}
                         </Text>
-                        <FontAwesome name="angle-right" size={18} color="#5f6e66" />
+                        <Feather name="chevron-right" size={18} color="#5f6e66" />
                     </Pressable>
 
                     <Pressable
@@ -76,12 +73,12 @@ export default function SignInScreen() {
                         onPress={() => handleSocialAuth("oauth_github")}
                     >
                         <View className="h-8 w-8 items-center justify-center rounded-full bg-white">
-                            <FontAwesome name="github" size={24} color="#111" />
+                            <Feather name="github" size={20} color="#111" />
                         </View>
                         <Text className="ml-3 flex-1 text-lg font-semibold text-card-foreground">
                             {isGithubClicked ? "Connecting GitHub..." : "Continue with GitHub"}
                         </Text>
-                        <FontAwesome name="angle-right" size={18} color="#5f6e66" />
+                        <Feather name="chevron-right" size={18} color="#5f6e66" />
                     </Pressable>
 
                     <Pressable
@@ -91,12 +88,12 @@ export default function SignInScreen() {
                         onPress={() => handleSocialAuth("oauth_apple")}
                     >
                         <View className="h-8 w-8 items-center justify-center rounded-full bg-white">
-                            <FontAwesome6 name="apple" size={22} color="#111" />
+                            <Feather name="smartphone" size={20} color="#111" />
                         </View>
                         <Text className="ml-3 flex-1 text-lg font-semibold text-background">
                             {isAppleClicked ? "Connecting Apple..." : "Continue with Apple"}
                         </Text>
-                        <FontAwesome name="angle-right" size={18} color="#5f6e66" />
+                        <Feather name="chevron-right" size={18} color="#5f6e66" />
                     </Pressable>
                 </View>
 
