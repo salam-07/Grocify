@@ -3,8 +3,8 @@ import { Text, View } from 'react-native';
 
 const index = () => {
     return (
-        <View>
-            <Text>index</Text>
+        <View className='bg-background flex-1 items-center justify-center'>
+            <Text className='text-muted-foreground text-2xl'>INDEX</Text>
         </View>
     );
 };
