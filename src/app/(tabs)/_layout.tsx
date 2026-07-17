@@ -1,8 +1,9 @@
+import { useGroceryStore } from '@/store/grocery-store';
 import { useAuth } from '@clerk/expo';
 import { Feather } from '@expo/vector-icons';
 import { Redirect, Tabs } from 'expo-router';
 import { cssInterop } from "nativewind";
-import type { ComponentProps } from 'react';
+import { useEffect, type ComponentProps } from 'react';
 import { View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -42,6 +43,13 @@ const TabIcon = ({ focused, icon }: TabIconProps) => {
 };
 
 export default function TabsLayout() {
+
+    const { loadItems, items } = useGroceryStore();
+
+    useEffect(() => {
+        loadItems();
+    }, []);
+
     const { isSignedIn, isLoaded } = useAuth();
     const insets = useSafeAreaInsets();
 
