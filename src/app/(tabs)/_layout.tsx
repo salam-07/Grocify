@@ -34,7 +34,7 @@ const TabIcon = ({ focused, icon }: TabIconProps) => {
                 <Feather
                     name={icon}
                     size={30}
-                    className={focused ? 'text-primary' : 'text-secondary'}
+                    className={focused ? 'text-muted-foreground' : 'text-secondary'}
                 />
             </View>
         </View >
@@ -70,7 +70,15 @@ export default function TabsLayout() {
                     paddingTop: 16,
                 },
                 tabBarBackground: () => (
-                    <View className="flex-1 rounded-[44px] bg-muted-foreground/90 justify-center items-center" />
+                    <View className="flex-1 rounded-[44px] bg-muted-foreground/90
+                    justify-center items-center"
+                        style={{
+                            shadowColor: '#000',
+                            shadowOpacity: 0.28,
+                            shadowRadius: 16,
+                            shadowOffset: { width: 0, height: 8 },
+                            elevation: 10,
+                        }} />
                 ),
                 tabBarItemStyle: {
                     paddingVertical: 0,
