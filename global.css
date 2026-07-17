@@ -36,7 +36,7 @@
     }
 
     .tabs-active {
-        @apply bg-background;
+        @apply bg-background shadow-xl shadow-black/90;
     }
 
     .tabs-glyph {
