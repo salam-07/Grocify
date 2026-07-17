@@ -17,7 +17,7 @@ cssInterop(Feather, {
 });
 
 export const tabs: Array<{ name: "index" | "planner" | "insights"; title: string; icon: FeatherIconName; }> = [
-    { name: "index", title: "Home", icon: "home" },
+    { name: "index", title: "Home", icon: "list" },
     { name: "planner", title: "Planner", icon: "plus-circle" },
     { name: "insights", title: "Insights", icon: "bar-chart-2" },
 ];
@@ -70,7 +70,7 @@ export default function TabsLayout() {
                     paddingTop: 16,
                 },
                 tabBarBackground: () => (
-                    <View className="flex-1 rounded-[44px] bg-primary/60 justify-center items-center" />
+                    <View className="flex-1 rounded-[44px] bg-muted-foreground/90 justify-center items-center" />
                 ),
                 tabBarItemStyle: {
                     paddingVertical: 0,

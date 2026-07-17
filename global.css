@@ -36,7 +36,7 @@
     }
 
     .tabs-active {
-        @apply bg-accent;
+        @apply bg-background;
     }
 
     .tabs-glyph {
