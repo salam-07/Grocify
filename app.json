@@ -23,7 +23,7 @@
       "package": "com.salam07.Grocify"
     },
     "web": {
-      "output": "static",
+      "output": "server",
       "favicon": "./assets/images/favicon.png",
       "bundler": "metro"
     },
