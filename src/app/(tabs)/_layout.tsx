@@ -1,6 +1,7 @@
 import { useGroceryStore } from '@/store/grocery-store';
 import { useAuth } from '@clerk/expo';
 import { Feather } from '@expo/vector-icons';
+import { BlurView } from 'expo-blur';
 import { Redirect, Tabs } from 'expo-router';
 import { cssInterop } from "nativewind";
 import { useEffect, type ComponentProps } from 'react';
@@ -35,7 +36,7 @@ const TabIcon = ({ focused, icon }: TabIconProps) => {
                 <Feather
                     name={icon}
                     size={30}
-                    className={focused ? 'text-muted-foreground' : 'text-secondary'}
+                    className={focused ? 'text-muted-foreground' : 'text-navicon'}
                 />
             </View>
         </View >
@@ -77,16 +78,25 @@ export default function TabsLayout() {
                     paddingBottom: 16,
                     paddingTop: 16,
                 },
+                // i love enuuuuuuuuuuu
                 tabBarBackground: () => (
-                    <View className="flex-1 rounded-[44px] bg-muted-foreground/90
-                    justify-center items-center"
+                    <BlurView
+                        intensity={20}
+                        tint="systemChromeMaterialDark"
+                        experimentalBlurMethod="dimezisBlurView"
                         style={{
+                            flex: 1,
+                            borderRadius: 44,
+                            overflow: 'hidden',
                             shadowColor: '#000',
                             shadowOpacity: 0.28,
                             shadowRadius: 16,
                             shadowOffset: { width: 0, height: 8 },
                             elevation: 10,
-                        }} />
+                        }}
+                    >
+                        <View className="flex-1 rounded-[44px] bg-muted-foreground/20" />
+                    </BlurView>
                 ),
                 tabBarItemStyle: {
                     paddingVertical: 0,

@@ -7,6 +7,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                navicon: "hsl(var(--nav-icon) / <alpha-value>)",
                 background: "hsl(var(--background) / <alpha-value>)",
                 foreground: "hsl(var(--foreground) / <alpha-value>)",
                 card: "hsl(var(--card) / <alpha-value>)",

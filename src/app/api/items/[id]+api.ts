@@ -24,6 +24,8 @@ export async function PATCH(request: Request, { id }: { id: string; }) {
 
         if (!item) return Response.json({ error: "Item not found." }, { status: 404 });
 
+        return Response.json({ item });
+
     } catch (error) {
         const message = error instanceof Error ? error.message : "Failed to update item";
         return Response.json({ error: message }, { status: 500 });
